@@ -12,13 +12,31 @@ Content-Type: application/json
 ###
 # Route to destroy JWT
 POST http://localhost:3000/api/logout
-Cookie:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc0MDUyNDk1NiwiZXhwIjoxNzQwNTM1NzU2fQ.XMNeHM9iKBUdBO-uDDF_2mFQCZOE1xIxp_4sYPjZbmo
+Cookie:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc0MTg5MTcxMCwiZXhwIjoxNzQxOTAyNTEwfQ.W6p78rFPQifDS_eHE1m0lRi16-xCL80JAf1fUAnXLtA
 
 ###
 # Route to filter events
 GET http://localhost:3000/api/filter-event
-###
 
+###
+# Route to messages
+GET http://localhost:3000/api/messages?userId1=3&userId2=2
+Cookie:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc0Mjg0NDc0MCwiZXhwIjoxNzQyODU1NTQwfQ.cpIR5Fpielw3RVueKJ2bPZZLuEJo_ZbDeHux0H9W-DI
+
+###
+# Route to messages
+POST http://localhost:3000/api/messages?userId=3
+Content-Type: application/json
+Cookie:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc0MTk2MzcyMywiZXhwIjoxNzQxOTc0NTIzfQ.2u-DzvER2sQW9INF_cw0-frO1-O2HkFHCHAzFeJi3hU
+
+{
+    "sender_id": 3,
+    "receiver_id": 2,
+    "content": "Salut, ça va ? content de te connaître"
+}
+
+
+###
 GET http://localhost:3000/api/verify-token
 Cookie:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc0MDQ5NTg4MiwiZXhwIjoxNzQwNTA2NjgyfQ.FCv_XdXD_wi-fgfKnm9JgBraRSqWKlwpGAhorMp5eMA
 
@@ -26,11 +44,21 @@ Cookie:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc0MDQ5NTg4
 # Route to events
 GET http://localhost:3000/api/events
 
+###
+# Route to profils
+GET http://localhost:3000/api/profils
+Cookie: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc0MjgyMDcwMSwiZXhwIjoxNzQyODMxNTAxfQ.gIojzo5AshB1lyeuL1mhS5CB_OZkm48H5s5shY7xCaw
+
+
+###
+# Route to get account details
+GET http://localhost:3000/api/visitor-profile/12
+Cookie:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc0Mjg0NTEwNCwiZXhwIjoxNzQyODU1OTA0fQ.hkGZ-4swjHvQTiW7czhbRn0XZwzhfQTofjD5JA6RxRY
 
 ###
 # Route to get account details
 GET http://localhost:3000/api/my-account
-Cookie:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc0MDQ4MDE2NCwiZXhwIjoxNzQwNDkwOTY0fQ.LEVI4txbS2E3Ejyr_Puj54RDJeOaVGe-78Kyh63vjaI
+Cookie:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc0Mjc2OTkyMCwiZXhwIjoxNzQyNzgwNzIwfQ.kZtUf42-u-IfSGkEupi0LxrVIntcbVfy-wjaOQSTdNA
 
 
 ###
@@ -88,4 +116,4 @@ Cookie: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTczOTk4NTI
 ### 
 # Route to get up to 6 profiles from a user connected
 GET http://localhost:3000/api/homepage-profiles
-Cookie: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTczOTk4NTI2MywiZXhwIjoxNzM5OTk2MDYzfQ.L4La2yQW25pF5IizrdBOwi9g-sHlSIZ-j-rGkeEccU0
+Cookie: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc0Mjc2OTkyMCwiZXhwIjoxNzQyNzgwNzIwfQ.kZtUf42-u-IfSGkEupi0LxrVIntcbVfy-wjaOQSTdNA

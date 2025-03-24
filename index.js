@@ -5,8 +5,8 @@ import cors from "cors"; // Import cors
 import cookieParser from "cookie-parser";
 
 import helmet from "helmet";
-
 import { bodySanitizer } from "./src/middlewares/sanitizeMiddleware.js"; // Import body sanitizer middleware
+
 
 
 
@@ -33,6 +33,7 @@ app.use(bodySanitizer);
 
 // Use routes
 app.use(router);
+
 
 // Start a server
 const PORT = process.env.PORT || 3000; // Fallback value if process.env.PORT is undefined, default to port 3000

@@ -10,8 +10,8 @@ export const errorHandler = (controller) => async (req, res, next) =>{
       console.log(err, '<< 404 NOT FOUND');
       res.status(404).json({err: 'Not found'});
     }else if(err.name === 'ForbiddenError'){
-      console.log(err,'<< 403 FORBIDDEN ERROR')
-      res.status(403).json({err: 'forbidden error'})
+      console.log(err,'<< 403 FORBIDDEN ERROR');
+      res.status(403).json({err: 'forbidden error'});
     } else {
       console.log(err, '<< 500 INTERNAL SERVER ERROR');
       res.status(500).json({err: 'Something went wrong'});

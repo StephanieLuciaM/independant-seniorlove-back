@@ -1,5 +1,5 @@
 {
-  "name": "senior-love-back",
+  "name": "independant-seniorlove-back",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -20,7 +20,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/O-clock-Raclette/senior-love-back.git"
+    "url": "git+https://github.com/StephanieLuciaM/independant-seniorlove-back.git"
   },
   "keywords": [],
   "author": "",
@@ -29,7 +29,7 @@
   "bugs": {
     "url": "https://github.com/O-clock-Raclette/senior-love-back/issues"
   },
-  "homepage": "https://github.com/O-clock-Raclette/senior-love-back#readme",
+  "homepage": "https://github.com/StephanieLuciaM/independant-seniorlove-back#readme",
   "description": "",
   "dependencies": {
     "argon2": "^0.41.1",

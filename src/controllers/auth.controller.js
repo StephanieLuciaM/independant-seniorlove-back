@@ -58,6 +58,14 @@ export const authController = {
 
     // Hash the password
     const hashedPassword = await argon2.hash(password);
+  
+    const profilePhotoUrl = req.body.profile_photo_url; // URL de Cloudinary
+
+    const finalPicture = (typeof picture === "string" && picture.trim() !== "") 
+      ? picture 
+      : (typeof profilePhotoUrl === "string" && profilePhotoUrl.trim() !== "") 
+        ? profilePhotoUrl 
+        : null;
     
 
     // Create the user
@@ -75,7 +83,7 @@ export const authController = {
       description,
       smoker,
       music,
-      picture,
+      picture: finalPicture,
       zodiac,
       slug: generateSlug(firstname) // Generate slug based on firstname
     });

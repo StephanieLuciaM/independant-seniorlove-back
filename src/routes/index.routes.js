@@ -4,6 +4,8 @@ import { eventController } from "../controllers/event.controller.js";
 import { jwtMiddleware } from "../middlewares/jwtMiddleware.js";
 import { userController } from "../controllers/user.controller.js";
 import { errorHandler } from "../middlewares/isErrorHandlerMiddleware.js";
+import { messageController } from "../controllers/message.controller.js";
+
 // utliser une fois connecté, sur les routes, le middleware JWT(comme controllerWrapper) 
 
 
@@ -39,15 +41,33 @@ router.route("/api/logout")
 router.route("/api/filter-event")
   .get(errorHandler(eventController.lastEvent));
 
+
 // Route to get all events
 router.route("/api/events")
   .get(eventController.getAllEvents);
+
+// Route to get all profiles
+router.route("/api/profils")
+  .get(jwtMiddleware,errorHandler(userController.profilsMatch));
+
+// Route to get one vivitor profile
+router.route("/api/visitor-profile/:userIdOrSlug")
+  .get(jwtMiddleware,errorHandler (userController.getVisitorProfile));
   
 router.route("/api/my-account")
   .get(jwtMiddleware,errorHandler(userController.getAccountDetails)) // Route to get account details
   .patch(jwtMiddleware,errorHandler(userController.updateAccountDetails)) // Define the update account details
   .delete(jwtMiddleware,errorHandler(userController.deleteAccount)); // Define the delete account route
 
+// Routes for message management
+// POST: /api/messages -> To send a message (handled by messageController.sendMessage)
+// GET: /api/messages -> To retrieve messages (handled by messageController.getMessages)
+router.route("/api/messages")
+  .post((messageController.createMessage))  // Calls sendMessage to handle message creation
+  .get((messageController.getMessagesBetweenUsers)); // Calls getMessages to fetch user messages
+
+  
 router.use((req, res) => {
   res.status(404).json({error: 'Not found'});
 });
+
