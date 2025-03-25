@@ -21,13 +21,13 @@ GET http://localhost:3000/api/filter-event
 ###
 # Route to messages
 GET http://localhost:3000/api/messages?userId1=3&userId2=2
-Cookie:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc0Mjg0NDc0MCwiZXhwIjoxNzQyODU1NTQwfQ.cpIR5Fpielw3RVueKJ2bPZZLuEJo_ZbDeHux0H9W-DI
+Cookie:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc0MjkxMjk1OSwiZXhwIjoxNzQyOTIzNzU5fQ.FFd-WwxeKALLwoxI0H8iV243CjDFtbp4y86JEsZUlgA"
 
 ###
 # Route to messages
 POST http://localhost:3000/api/messages?userId=3
 Content-Type: application/json
-Cookie:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc0MTk2MzcyMywiZXhwIjoxNzQxOTc0NTIzfQ.2u-DzvER2sQW9INF_cw0-frO1-O2HkFHCHAzFeJi3hU
+Cookie:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc0MjkxMjk1OSwiZXhwIjoxNzQyOTIzNzU5fQ.FFd-WwxeKALLwoxI0H8iV243CjDFtbp4y86JEsZUlgA"
 
 {
     "sender_id": 3,

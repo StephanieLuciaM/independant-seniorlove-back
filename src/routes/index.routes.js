@@ -63,8 +63,8 @@ router.route("/api/my-account")
 // POST: /api/messages -> To send a message (handled by messageController.sendMessage)
 // GET: /api/messages -> To retrieve messages (handled by messageController.getMessages)
 router.route("/api/messages")
-  .post((messageController.createMessage))  // Calls sendMessage to handle message creation
-  .get((messageController.getMessagesBetweenUsers)); // Calls getMessages to fetch user messages
+  .post(jwtMiddleware,errorHandler(messageController.createMessage))  // Calls sendMessage to handle message creation
+  .get(jwtMiddleware,errorHandler(messageController.getMessagesBetweenUsers)); // Calls getMessages to fetch user messages
 
   
 router.use((req, res) => {
