@@ -66,6 +66,9 @@ router.route("/api/messages")
   .post(jwtMiddleware,errorHandler(messageController.createMessage))  // Calls sendMessage to handle message creation
   .get(jwtMiddleware,errorHandler(messageController.getMessagesBetweenUsers)); // Calls getMessages to fetch user messages
 
+// Dans votre fichier de routes
+router.route("/api/conversations")
+  .get(jwtMiddleware, errorHandler(messageController.getUserConversations));
   
 router.use((req, res) => {
   res.status(404).json({error: 'Not found'});

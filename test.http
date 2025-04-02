@@ -21,20 +21,26 @@ GET http://localhost:3000/api/filter-event
 ###
 # Route to messages
 GET http://localhost:3000/api/messages?userId1=3&userId2=2
-Cookie:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc0MjkxMjk1OSwiZXhwIjoxNzQyOTIzNzU5fQ.FFd-WwxeKALLwoxI0H8iV243CjDFtbp4y86JEsZUlgA"
+Cookie:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc0MzYwNDg0NiwiZXhwIjoxNzQzNjE1NjQ2fQ.xJsD9xjWtAYDGPDmLX30Eqk4_Yb-v0YdP-cRf6WxSW0"
 
 ###
 # Route to messages
 POST http://localhost:3000/api/messages?userId=3
 Content-Type: application/json
-Cookie:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc0MjkxMjk1OSwiZXhwIjoxNzQyOTIzNzU5fQ.FFd-WwxeKALLwoxI0H8iV243CjDFtbp4y86JEsZUlgA"
+Cookie:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc0MzYwNDg0NiwiZXhwIjoxNzQzNjE1NjQ2fQ.xJsD9xjWtAYDGPDmLX30Eqk4_Yb-v0YdP-cRf6WxSW0
 
 {
     "sender_id": 3,
     "receiver_id": 2,
-    "content": "Salut, ça va ? content de te connaître"
+    "content": "JE TESTE MES MESSAGES"
 }
 
+
+
+###
+# Route pour récupérer toutes les conversations d'un utilisateur
+GET http://localhost:3000/api/conversations?userId=3
+Cookie: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc0MzYwNzU3MCwiZXhwIjoxNzQzNjE4MzcwfQ.ZIY0zVJC22ZvqS8YkdTkT8gg1-0F1SPL3O7TEBVua1s
 
 ###
 GET http://localhost:3000/api/verify-token

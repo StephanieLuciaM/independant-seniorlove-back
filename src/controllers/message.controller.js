@@ -44,6 +44,59 @@ export const messageController = {
     } catch (error) {
       res.status(500).json({ error: "Erreur lors de la récupération des messages." });
     }
+  },
+
+  // Dans votre messageController.js, ajoutez cette fonction :
+  async getUserConversations(req, res) {
+    const { userId } = req.query;
+  
+    if (!userId) {
+      return res.status(400).json({ error: "L'ID utilisateur est requis." });
+    }
+  
+    try {
+    // Récupérer tous les messages où l'utilisateur est expéditeur ou destinataire
+      const messages = await Message.findAll({
+        where: {
+          [Op.or]: [
+            { sender_id: userId },
+            { receiver_id: userId }
+          ]
+        },
+        order: [["created_at", "DESC"]], // Du plus récent au plus ancien
+      });
+    
+      // Extraire les IDs uniques des autres utilisateurs avec qui l'utilisateur a échangé
+      const conversationPartners = new Map();
+    
+      messages.forEach(message => {
+        const partnerId = message.sender_id == userId ? message.receiver_id : message.sender_id;
+      
+        // Si ce partenaire n'est pas déjà dans notre map ou si ce message est plus récent
+        if (!conversationPartners.has(partnerId) || 
+          conversationPartners.get(partnerId).created_at < message.created_at) {
+          conversationPartners.set(partnerId, {
+            user_id: partnerId,
+            last_message: message.content,
+            last_message_id: message.id,
+            created_at: message.created_at,
+            updated_at: message.updated_at,
+            is_sender: message.sender_id == userId
+          });
+        }
+      });
+    
+      // Convertir la Map en tableau
+      const conversations = Array.from(conversationPartners.values());
+    
+      // Trier par date de dernier message (du plus récent au plus ancien)
+      conversations.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+    
+      res.status(200).json(conversations);
+    } catch (error) {
+      console.error("Erreur lors de la récupération des conversations:", error);
+      res.status(500).json({ error: "Erreur lors de la récupération des conversations." });
+    }
   }
   
 };
