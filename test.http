@@ -40,7 +40,7 @@ Cookie:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc0MzYwNDg0
 ###
 # Route pour récupérer toutes les conversations d'un utilisateur
 GET http://localhost:3000/api/conversations?userId=3
-Cookie: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc0MzYwNzU3MCwiZXhwIjoxNzQzNjE4MzcwfQ.ZIY0zVJC22ZvqS8YkdTkT8gg1-0F1SPL3O7TEBVua1s
+Cookie: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc0MzcwNTc5MiwiZXhwIjoxNzQzNzE2NTkyfQ.FRL3uE6OMaLn-bAabzRPmBOdCpbhtu6h83Qz1idVlyA
 
 ###
 GET http://localhost:3000/api/verify-token
