@@ -20,14 +20,14 @@ GET http://localhost:3000/api/filter-event
 
 ###
 # Route to messages
-GET http://localhost:3000/api/messages?userId1=3&userId2=2
-Cookie:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc0MzYwNDg0NiwiZXhwIjoxNzQzNjE1NjQ2fQ.xJsD9xjWtAYDGPDmLX30Eqk4_Yb-v0YdP-cRf6WxSW0"
+GET http://localhost:3000/api/messages?user1=jean&user2=marie
+Cookie:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc0Mzc5NDc1NywiZXhwIjoxNzQzODA1NTU3fQ.mzpL5Noy_uRA_MNgTdtNwEwAq42iObdQlc47XfamxQQ
 
 ###
 # Route to messages
-POST http://localhost:3000/api/messages?userId=3
+POST http://localhost:3000/api/messages?claude
 Content-Type: application/json
-Cookie:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc0MzYwNDg0NiwiZXhwIjoxNzQzNjE1NjQ2fQ.xJsD9xjWtAYDGPDmLX30Eqk4_Yb-v0YdP-cRf6WxSW0
+Cookie:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc0Mzc5NDc1NywiZXhwIjoxNzQzODA1NTU3fQ.mzpL5Noy_uRA_MNgTdtNwEwAq42iObdQlc47XfamxQQ
 
 {
     "sender_id": 3,
@@ -39,8 +39,10 @@ Cookie:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc0MzYwNDg0
 
 ###
 # Route pour récupérer toutes les conversations d'un utilisateur
-GET http://localhost:3000/api/conversations?userId=3
-Cookie: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc0MzcwNTc5MiwiZXhwIjoxNzQzNzE2NTkyfQ.FRL3uE6OMaLn-bAabzRPmBOdCpbhtu6h83Qz1idVlyA
+GET http://localhost:3000/api/conversations?user=claude
+Cookie: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc0Mzc5NDc1NywiZXhwIjoxNzQzODA1NTU3fQ.mzpL5Noy_uRA_MNgTdtNwEwAq42iObdQlc47XfamxQQ
+
+
 
 ###
 GET http://localhost:3000/api/verify-token
@@ -59,13 +61,12 @@ Cookie: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc0MjgyMDc
 ###
 # Route to get account details
 GET http://localhost:3000/api/visitor-profile/12
-Cookie:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc0Mjg0NTEwNCwiZXhwIjoxNzQyODU1OTA0fQ.hkGZ-4swjHvQTiW7czhbRn0XZwzhfQTofjD5JA6RxRY
+Cookie:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc0Mzc4MDMzMywiZXhwIjoxNzQzNzkxMTMzfQ.ktqjL0ZuRatxEcsM5gIyttT7nO9jDav0jy3A6OkJV0E
 
 ###
 # Route to get account details
 GET http://localhost:3000/api/my-account
-Cookie:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc0Mjc2OTkyMCwiZXhwIjoxNzQyNzgwNzIwfQ.kZtUf42-u-IfSGkEupi0LxrVIntcbVfy-wjaOQSTdNA
-
+Cookie:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc0Mzc4MDMzMywiZXhwIjoxNzQzNzkxMTMzfQ.ktqjL0ZuRatxEcsM5gIyttT7nO9jDav0jy3A6OkJV0E
 
 ###
 # Route to update account details
