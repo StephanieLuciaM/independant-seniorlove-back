@@ -46,6 +46,13 @@ router.route("/api/filter-event")
 router.route("/api/events")
   .get(eventController.getAllEvents);
 
+// Route to get one event
+router.route("/api/event/:eventIdorSlug")
+  .get(eventController.getEventDetails);
+
+router.route("/api/event/register")
+  .post(jwtMiddleware,errorHandler(eventController.registerUserToEvent));
+
 // Route to get all profiles
 router.route("/api/profils")
   .get(jwtMiddleware,errorHandler(userController.profilsMatch));

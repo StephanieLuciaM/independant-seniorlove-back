@@ -24,6 +24,7 @@ GET http://localhost:3000/api/messages?user1=jean&user2=marie
 Cookie:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc0Mzc5NDc1NywiZXhwIjoxNzQzODA1NTU3fQ.mzpL5Noy_uRA_MNgTdtNwEwAq42iObdQlc47XfamxQQ
 
 ###
+
 # Route to messages
 POST http://localhost:3000/api/messages?claude
 Content-Type: application/json
@@ -38,6 +39,7 @@ Cookie:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc0Mzc5NDc1
 
 
 ###
+
 # Route pour récupérer toutes les conversations d'un utilisateur
 GET http://localhost:3000/api/conversations?user=claude
 Cookie: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc0Mzc5NDc1NywiZXhwIjoxNzQzODA1NTU3fQ.mzpL5Noy_uRA_MNgTdtNwEwAq42iObdQlc47XfamxQQ
@@ -49,8 +51,14 @@ GET http://localhost:3000/api/verify-token
 Cookie:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc0MDQ5NTg4MiwiZXhwIjoxNzQwNTA2NjgyfQ.FCv_XdXD_wi-fgfKnm9JgBraRSqWKlwpGAhorMp5eMA
 
 ###
+
 # Route to events
 GET http://localhost:3000/api/events
+
+###
+# Route to get account details
+GET http://localhost:3000/api/event/atelier-peinture-acrylique
+Cookie:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc0NDYyODIzOSwiZXhwIjoxNzQ0NjM5MDM5fQ.ZlgJWFcPrusSm2S1_Ufj1k_MsU0Wzcf8yfWWnZWqQAA
 
 ###
 # Route to profils
@@ -113,6 +121,17 @@ Content-Type: application/json
     "picture":"",
     "zodiac":"poisson",
     "labels": ["Nature", "Culturel"]
+}
+
+### 
+# Route pour s'inscrire à un événement
+POST http://localhost:3000/api/event/register
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc0NDY2NzI5OCwiZXhwIjoxNzQ0Njc4MDk4fQ.hBxlI3EtkgQA3nzTcLeIS2toTB3h96bS4tJb3Zg19Ao
+
+{
+    "userId": 3,
+    "eventId": 1
 }
 
 ### 
