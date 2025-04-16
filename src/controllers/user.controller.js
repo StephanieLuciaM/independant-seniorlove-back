@@ -40,7 +40,7 @@ export const userController = {
         //{ model: Role, as: 'role' },
         //{ model: Message, as: 'sentMessages' },
         //{ model: Message, as: 'receivedMessages' }
-        'role', 'sentMessages', 'receivedMessages', 'labels'
+        'role', 'sentMessages', 'receivedMessages', 'labels','events'
       ]
     });
 
@@ -58,7 +58,7 @@ export const userController = {
       include: [
         { model: Label, as: 'label' }
       ],
-      attributes: ['id', 'title']
+      attributes: ['id', 'title','picture']
     });
 
     // Retrieve future event (only title)
@@ -70,7 +70,7 @@ export const userController = {
       include: [
         { model: Label, as: 'label' }
       ],
-      attributes: ['id', 'title']
+      attributes: ['id', 'title','picture']
     });
 
     user.dataValues.pastEvents = pastEvents;
@@ -97,7 +97,7 @@ export const userController = {
           ]
         },
         include: [
-          'role', 'sentMessages', 'receivedMessages', 'labels'
+          'role', 'sentMessages', 'receivedMessages', 'labels','events'
         ]
       });
       
@@ -110,13 +110,19 @@ export const userController = {
         where: { date: { [Op.lt]: new Date() } },
         limit: 2,
         order: [['date', 'DESC']],
-        include: [{ model: Label, as: 'label' }]
+        include: [
+          { model: Label, as: 'label' }
+        ],
+        attributes: ['id', 'title','picture']
       });
       
       const futureEvent = await Event.findOne({
         where: { date: { [Op.gt]: new Date() } },
         order: [['date', 'ASC']],
-        include: [{ model: Label, as: 'label' }]
+        include: [
+          { model: Label, as: 'label' }
+        ],
+        attributes: ['id', 'title','picture']
       });
       
       user.dataValues.pastEvents = pastEvents;
