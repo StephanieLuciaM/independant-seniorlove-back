@@ -37,9 +37,6 @@ export const userController = {
     const user = await User.findOne({
       where: { id: userId },
       include: [
-        //{ model: Role, as: 'role' },
-        //{ model: Message, as: 'sentMessages' },
-        //{ model: Message, as: 'receivedMessages' }
         'role', 'sentMessages', 'receivedMessages', 'labels','events'
       ]
     });
@@ -177,9 +174,6 @@ export const userController = {
     const updatedUser = await User.findOne({
       where: { id: userId },
       include: [
-        //{ model: Role, as: 'role' },
-        //{ model: Message, as: 'sentMessages' },
-        //{ model: Message, as: 'receivedMessages' }
         'role', 'sentMessages', 'receivedMessages', 'labels'
       ]
     });

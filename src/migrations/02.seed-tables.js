@@ -70,7 +70,7 @@ async function addLabelToUser(userId, labelId) {
   await user.addLabel(labelId);
 }
 
-// Ajouter des labels à l'utilisateur 1
+// Add labels to user
 await addLabelToUser(1, 1);
 await addLabelToUser(1, 2);
 await addLabelToUser(1, 4);

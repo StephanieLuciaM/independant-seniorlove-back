@@ -63,18 +63,19 @@ Cookie:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc0NDYyODIz
 ###
 # Route to profils
 GET http://localhost:3000/api/profils
-Cookie: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc0MjgyMDcwMSwiZXhwIjoxNzQyODMxNTAxfQ.gIojzo5AshB1lyeuL1mhS5CB_OZkm48H5s5shY7xCaw
+Cookie: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc0NTUwMDAyNiwiZXhwIjoxNzQ1NTEwODI2fQ.4CmGrCDYCeTMuB4IhdnLsvTwe9SyFZIJ6pVQYIuBmVQ
+
 
 
 ###
 # Route to get account details
 GET http://localhost:3000/api/visitor-profile/12
-Cookie:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc0NDgwNjcxMCwiZXhwIjoxNzQ0ODE3NTEwfQ.ag5gsR1DFUsPjMmOrkEhLmA0MmAPBKkhfPAcl1NhFt4
+Cookie:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc0NTUwMDAyNiwiZXhwIjoxNzQ1NTEwODI2fQ.4CmGrCDYCeTMuB4IhdnLsvTwe9SyFZIJ6pVQYIuBmVQ
 
 ###
 # Route to get account details
 GET http://localhost:3000/api/my-account
-Cookie:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc0NDc5ODkyNSwiZXhwIjoxNzQ0ODA5NzI1fQ.MoxyFEU_usQzfo_jaGFgkOuchPMotIjSPW2vw2hGa7M
+Cookie:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc0NTU2Nzc0MSwiZXhwIjoxNzQ1NTc4NTQxfQ.W8r_L7EbPInyc1bTIUvQg0ySChqVnjebKYdWtBv-rtc
 
 ###
 # Route to update account details

@@ -1,18 +1,14 @@
-
-
 import { Event, Label, User } from "../models/associations.js";
 import { Op } from 'sequelize';
 import slugify from 'slugify';
 
 // Function to generate slug
-
 const generateSlug = (name) => {
   return slugify(name, {
     lower: true, // Convert to lowercase
     remove: /[^a-zA-Z0-9 -]/g, // Remove special characters except spaces and hyphens
     strict: true // Remove any remaining special characters
   });
-
 };   
 
 export const eventController = {
@@ -28,7 +24,7 @@ export const eventController = {
       res.json(events);
     } catch (error) {
       // Handle any errors that occur during the fetch
-      res.status(500).json({ message: 'Quelque chose s\'est mal passé', error });
+      res.status(500).json({ message: 'Something went wrong', error });
     }
   },
 
@@ -39,9 +35,9 @@ export const eventController = {
       const event = await Event.findOne({
         where: {
           [Op.or]: [
-            // Si c'est un nombre valide, recherchez par ID
+            // If it's a valid number, search by ID
             ...(Number.isInteger(eventId) ? [{ id: eventId }] : []),
-            // Sinon, recherchez par slug
+            // Otherwise, search by slug
             { slug: eventIdorSlug }
           ]
         },
@@ -50,15 +46,15 @@ export const eventController = {
       });
       
       if (!event) {
-        return res.status(404).json({ message: 'Evènement non trouvé' });
+        return res.status(404).json({ message: 'Event not found' });
       }
       
-      // Ajout de cette ligne pour renvoyer l'événement trouvé
+      // Added this line to return the found event
       return res.status(200).json(event);
           
     } catch (error) {
       // Handle any errors that occur during the fetch
-      res.status(500).json({ message: 'Quelque chose s\'est mal passé', error });
+      res.status(500).json({ message: 'Something went wrong', error });
     }
   },
   
@@ -68,17 +64,14 @@ export const eventController = {
       const events = await Promise.all(cities.map(async (city) => {
         return await Event.findOne({
           where: { city },
-
-
           order: [['created_at', 'DESC']],
           include: {model:Label, as:'label'}
-
         });
       }));
       res.json(events);
     } catch (err) {
       console.log(err);
-      return res.status(500).json({ err: 'Erreur lors de la récupération des événements' });
+      return res.status(500).json({ err: 'Error retrieving events' });
     }
   },
 
@@ -117,42 +110,42 @@ export const eventController = {
     try {
       const { userId, eventId } = req.body;
         
-      // Vérifier que les données nécessaires sont présentes
+      // Check that the necessary data is present
       if (!userId || !eventId) { 
-        return res.status(400).json({error: "Tous les champs sont requis"});
+        return res.status(400).json({error: "All fields are required"});
       }
       
-      // Vérifier si l'utilisateur existe
+      // Check if the user exists
       const user = await User.findByPk(userId);
       if (!user) {
-        return res.status(404).json({error: "Utilisateur non trouvé"});
+        return res.status(404).json({error: "User not found"});
       }
       
-      // Vérifier si l'événement existe
+      // Check if the event exists
       const event = await Event.findByPk(eventId);
       if (!event) {
-        return res.status(404).json({ error:"Événement non trouvé"});
+        return res.status(404).json({ error: "Event not found"});
       }
       
-      // Vérifier si l'utilisateur est déjà inscrit à cet événement
+      // Check if the user is already registered for this event
       const userEvents = await user.getEvents({ where: { id: eventId } });
       if (userEvents.length > 0) {
-        return res.status(409).json({ console:"Vous êtes déjà inscrit à cet événement"});
+        return res.status(409).json({ console: "You are already registered for this event"});
       }
       
-      // Inscrire l'utilisateur à l'événement
+      // Register the user for the event
       await user.addEvent(event, { 
         through: { 
           created_at: new Date() 
         } 
       });
       
-      // Réponse avec succès
-      return res.status(201).json({message: "Inscription réussie à l'événement"});
+      // Success response
+      return res.status(201).json({message: "Successfully registered for the event"});
       
     } catch (error) {
-      console.error("Erreur lors de l'inscription à l'événement:", error);
-      return res.status(500).json({error: "Une erreur est survenue lors de l'inscription"});
+      console.error("Error during event registration:", error);
+      return res.status(500).json({error: "An error occurred during registration"});
     }
   }
 };

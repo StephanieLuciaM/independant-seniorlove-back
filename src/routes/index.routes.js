@@ -6,10 +6,6 @@ import { userController } from "../controllers/user.controller.js";
 import { errorHandler } from "../middlewares/isErrorHandlerMiddleware.js";
 import { messageController } from "../controllers/message.controller.js";
 
-// utliser une fois connecté, sur les routes, le middleware JWT(comme controllerWrapper) 
-
-
-
 
 export const router = new Router();
 
