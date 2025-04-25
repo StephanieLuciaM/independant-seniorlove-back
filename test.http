@@ -3,8 +3,8 @@ POST http://localhost:3000/api/signin
 Content-Type: application/json
 
 {
-    "email":"claude65@example.com",
-    "password":"Cl@ude1958!"
+    "email":"marie62@example.com",
+    "password":"Passionnée$2024"
 }
 
 
@@ -63,7 +63,7 @@ Cookie:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc0NDYyODIz
 ###
 # Route to profils
 GET http://localhost:3000/api/profils
-Cookie: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc0NTUwMDAyNiwiZXhwIjoxNzQ1NTEwODI2fQ.4CmGrCDYCeTMuB4IhdnLsvTwe9SyFZIJ6pVQYIuBmVQ
+Cookie: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI1LCJpYXQiOjE3NDU2MDM0MDksImV4cCI6MTc0NTYxNDIwOX0.VqAjDLExWmLCpyeWGIK_s6lqpWODVyzSW35hWCJFCyw
 
 
 
@@ -105,18 +105,18 @@ POST http://localhost:3000/api/signup
 Content-Type: application/json
 
 {
-    "email": "newuser123@example.com", 
-    "password": "NewPassword2023!",
-    "repeat_password": "NewPassword2023!",  
-    "firstname": "Alice", 
+    "email": "newuser125@example.com", 
+    "password": "NewPassword2025!",
+    "repeat_password": "NewPassword2025!",  
+    "firstname": "Alix", 
     "gender": "Femme", 
     "gender_match": "Homme", 
-    "age": "61", 
+    "age": "64", 
     "height": "165",   
     "marital": "Célibataire", 
     "pet": "false",   
-    "city": "TOULOUSE",
-    "description": "<script>hello</script> j'aime les chats",
+    "city": "PARIS",
+    "description": "<script>hello</script> j'aime les chiens",
     "smoker": "false",
     "music": "variété française",
     "picture":"",
@@ -143,4 +143,4 @@ Cookie: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTczOTk4NTI
 ### 
 # Route to get up to 6 profiles from a user connected
 GET http://localhost:3000/api/homepage-profiles
-Cookie: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc0Mjc2OTkyMCwiZXhwIjoxNzQyNzgwNzIwfQ.kZtUf42-u-IfSGkEupi0LxrVIntcbVfy-wjaOQSTdNA
+Cookie: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc0NTU5MTYwMSwiZXhwIjoxNzQ1NjAyNDAxfQ.m4MZPogtEywvdk9r8Hxu-_30T4bDRtJT8P7WjfCa-1Q
