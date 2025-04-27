@@ -48,7 +48,7 @@ User.init({
     type: DataTypes.BOOLEAN,
     get() {
       const rawValue = this.getDataValue('smoker');
-      return rawValue === true ? 'vrai' : 'faux';
+      return rawValue === true ? 'Oui' : 'Non';
     }
   },
   marital:{
@@ -60,7 +60,7 @@ User.init({
     allowNull:false,
     get() {
       const rawValue = this.getDataValue('pet');
-      return rawValue === true ? 'vrai' : 'faux';
+      return rawValue === true ? 'Oui' : 'Non';
     }
   },                          
   city:{

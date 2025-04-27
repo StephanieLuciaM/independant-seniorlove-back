@@ -147,5 +147,6 @@ export const eventController = {
       console.error("Error during event registration:", error);
       return res.status(500).json({error: "An error occurred during registration"});
     }
-  }
+  },
+
 };

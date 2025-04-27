@@ -46,8 +46,10 @@ router.route("/api/events")
 router.route("/api/event/:eventIdorSlug")
   .get(eventController.getEventDetails);
 
+// Route to register for an event
 router.route("/api/event/register")
   .post(jwtMiddleware,errorHandler(eventController.registerUserToEvent));
+
 
 // Route to get all profiles
 router.route("/api/profils")

@@ -125,10 +125,10 @@ Content-Type: application/json
 }
 
 ### 
-# Route pour s'inscrire à un événement
+# Route to register for an event
 POST http://localhost:3000/api/event/register
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc0NDY2NzI5OCwiZXhwIjoxNzQ0Njc4MDk4fQ.hBxlI3EtkgQA3nzTcLeIS2toTB3h96bS4tJb3Zg19Ao
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlhdCI6MTc0NTY5MjMxNCwiZXhwIjoxNzQ1NzAzMTE0fQ.QOZpW8dRLqwnP4krf2ioTAx1WE6NQqthEggfDxo2jz4
 
 {
     "userId": 3,
