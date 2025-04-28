@@ -17,7 +17,7 @@ app.use(helmet());
 
 // CORS module: specify who can access the API
 app.use(cors({
-  origin: "http://localhost:5173", // * = allow everyone (not a best practice, but it's fine for local development),
+  origin: ['http://localhost:5173', 'https://seniorlove.vercel.app'], // * = allow everyone (not a best practice, but it's fine for local development),
   credentials: true,
   methods: "GET, PUT, POST, PATCH, DELETE",
   allowedHeaders: "Content-Type, Authorization"
