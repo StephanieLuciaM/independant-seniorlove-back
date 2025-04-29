@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "node --watch index.js",
-    "start": "npm run dblocal:create && npm run dblocal:seed && node index.js",
+    "start": "node index.js",
     "db:create": "psql -U seniorlove -d seniorlove -f './data/01.create-tables.sql'",
     "db:seed": "psql -U seniorlove -d seniorlove -f './data/02.seed-tables.sql'",
     "db:reset": "npm run db:create && npm run db:seed",
