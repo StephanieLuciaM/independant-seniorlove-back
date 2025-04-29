@@ -162,7 +162,14 @@ export const authController = {
     const jwtOptions = { algorithm: 'HS256', expiresIn: '3h' }; // Define JWT options, setting the algorithm and expiration time
     const token = jwt.sign(jwtContent, jwtSecret, jwtOptions); // Sign the JWT using the secret key and options
 
-    res.cookie("token", token, options);
+    
+    res.cookie('token', token, {
+      httpOnly: true, 
+      secure: true,      // Important for HTTPS
+      sameSite: 'none',  // Critical for cross-domain requests
+      maxAge: 24 * 60 * 60 * 1000 // Cookie lifespan
+    });
+
 
     // Return the token and user info
     return res.status(200).json({ 
