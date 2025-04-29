@@ -176,6 +176,7 @@ export const authController = {
       message: 'Connexion réussie.', 
       logged: true, 
       pseudo: user.firstname,
+      userId: user.id,
       token 
     });
   
