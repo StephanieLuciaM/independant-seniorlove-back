@@ -122,6 +122,7 @@ export const authController = {
 
 
   // Handle user sign-in
+
   async signIn(req, res) {
     const { email, password } = req.body;
 
@@ -140,7 +141,7 @@ export const authController = {
     });
 
     if (!user) {
-      return res.status(404).json({ error: 'Identifiants incorrects..' }); // 
+      return res.status(404).json({ error: 'Identifiants incorrects..' });
     }
 
     // Verify password
@@ -149,46 +150,65 @@ export const authController = {
       return res.status(401).json({ error: 'Identifiants incorrects..' });
     }
 
-    //Cookie
-    const options = {
-      maxAge: 1000 * 60 * 60 * 3, // expire after 3 hours
-      httpOnly: true, // Cookie will not be exposed to client side code
-      //sameSite: "none", // If client and server origins are different
-      //secure: true // use with HTTPS only
-    };
-
     // Generate JWT
     const jwtContent = { userId: user.id }; // Create JWT payload with user ID
-    const jwtOptions = { algorithm: 'HS256', expiresIn: '3h' }; // Define JWT options, setting the algorithm and expiration time
+    const jwtOptions = { algorithm: 'HS256', expiresIn: '24h' }; // Extend expiration to 24h
     const token = jwt.sign(jwtContent, jwtSecret, jwtOptions); // Sign the JWT using the secret key and options
 
-    
-    res.cookie('token', token, {
-      httpOnly: true, 
-      secure: true,      // Important for HTTPS
-      sameSite: 'none',  // Critical for cross-domain requests
-      maxAge: 24 * 60 * 60 * 1000 // Cookie lifespan
-    });
+    // Advanced cookie configuration for maximum compatibility
+    const cookieOptions = {
+      httpOnly: true,
+      maxAge: 24 * 60 * 60 * 1000 // 24h in milliseconds
+    };
 
+    // In production, add additional security options
+    if (process.env.NODE_ENV === 'production') {
+      cookieOptions.secure = true;
+      cookieOptions.sameSite = 'none'; // Required for cross-origin requests
+    }
 
-    // Return the token and user info
+    // Set the cookie with the configured options
+    res.cookie('token', token, cookieOptions);
+
+    // Return the token and user info (including the token in the JSON response)
     return res.status(200).json({ 
       message: 'Connexion réussie.', 
       logged: true, 
       pseudo: user.firstname,
       userId: user.id,
-      token 
+      token // Send the token in the JSON response for storage in localStorage
     });
-  
   },
 
+  // Updated verifyToken function
   async verifyToken(req, res){
-    if (req.user) {
-      res.status(200).json({ userId: req.user.userId, firstname: req.user.firstname });
+  // req.user is set by the JWT middleware
+    if (req.user && req.user.userId) {
+      try {
+      // Retrieve user information from the database
+        const user = await User.findByPk(req.user.userId, {
+          attributes: ['id', 'firstname', 'email'] // Select only the necessary fields
+        });
+      
+        if (!user) {
+          return res.status(404).json({ error: 'Utilisateur non trouvé.' });
+        }
+      
+        // Return user information
+        res.status(200).json({ 
+          userId: user.id, 
+          firstname: user.firstname,
+          email: user.email
+        });
+      } catch (error) {
+        console.error('Erreur lors de la vérification du token:', error);
+        res.status(500).json({ error: 'Erreur serveur lors de la vérification du token.' });
+      }
     } else {
       res.status(401).json({ error: 'Token invalide.' });
     }
   },
+
   //Logs out the user by removing the authentification token
   async logout(req, res){
     res.clearCookie('token', { httpOnly: true});
